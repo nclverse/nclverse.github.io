@@ -9,14 +9,14 @@ html, body {
 
 @-moz-keyframes spin {
   100% {
-    -moz-transform: rotate(360deg); } }
+    -moz-transform: rotate(-360deg); } }
 @-webkit-keyframes spin {
   100% {
-    -webkit-transform: rotate(360deg); } }
+    -webkit-transform: rotate(-360deg); } }
 @keyframes spin {
   100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg); } }
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg); } }
 a {
   text-decoration: none;
   color: white; }
@@ -66,7 +66,7 @@ a {
     animation: spin 160s linear infinite; }
   #main-logo li:nth-child(1) {
     position: relative;
-    left: 20em;
+    left: 19.5em;
     margin-top: -15%; }
   #main-logo li:nth-child(2) {
     -webkit-align-self: flex-end;
