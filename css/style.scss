@@ -1,0 +1,49 @@
+/*
+Error: Invalid CSS after "0": expected expression (e.g. 1px, bold), was ";"
+        on line 2 of resources/public/sass/style.sass
+
+1: * {
+2:     margin: 0;
+3:     padding: 0;
+4: 
+5: }
+6: 
+7: html,body {
+
+Backtrace:
+resources/public/sass/style.sass:2
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/scss/parser.rb:1165:in `expected'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/script/lexer.rb:221:in `expected!'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/script/parser.rb:602:in `assert_done'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/script/parser.rb:63:in `parse'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/script/parser.rb:183:in `parse'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/script.rb:27:in `parse'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/engine.rb:1120:in `parse_script'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/engine.rb:710:in `parse_property'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/engine.rb:681:in `parse_property_or_rule'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/engine.rb:647:in `parse_line'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/engine.rb:525:in `build_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/engine.rb:544:in `block in append_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/engine.rb:543:in `each'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/engine.rb:543:in `append_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/engine.rb:534:in `block in build_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/engine.rb:527:in `each'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/engine.rb:527:in `build_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/engine.rb:544:in `block in append_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/engine.rb:543:in `each'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/engine.rb:543:in `append_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/engine.rb:396:in `_to_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/engine.rb:368:in `_render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/engine.rb:285:in `render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/exec/sass_scss.rb:407:in `run'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/exec/base.rb:52:in `parse'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/lib/sass/exec/base.rb:19:in `parse!'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.12/bin/sass:13:in `<top (required)>'
+/usr/bin/sass:23:in `load'
+/usr/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"0\": expected expression (e.g. 1px, bold), was \";\"\A         on line 2 of resources/public/sass/style.sass\A \A 1: * {\A 2:     margin: 0;\A 3:     padding: 0;\A 4: \A 5: }\A 6: \A 7: html,body {"; }
