@@ -1,13 +1,12 @@
-(ns main-page.core
-    (:require))
+(ns main-site-gen.core)
 
-(enable-console-print!)
+;; (stop-and-start-my app)
 
 (defn debug[& el]
   (set! (.-innerHTML (.getElementById js/document "debug")) (apply str el)))
 
 (defn ctx [canvasId]
-(.getContext (.getElementById js/document canvasId) "2d"))
+  (.getContext (.getElementById js/document canvasId) "2d"))
 
 (defn getWidth [ctx] (.-width (.-canvas ctx)))
 (defn getHeight [ctx] (.-height (.-canvas ctx)))
@@ -27,20 +26,20 @@
     (.createRadialGradient ctx x0 y0 r0 x1 y1 r1)))
 
 (defn add-stop [grd loc color]
-(.addColorStop grd loc color))
+  (.addColorStop grd loc color))
 
 (defn set-fill-style [ctx style]
-(set! (. ctx -fillStyle) style))
+  (set! (. ctx -fillStyle) style))
 
 (defn fillRect ([ctx]
-  (.fillRect ctx 0 0 (.-width (.-canvas ctx))
-             (.-height (.-canvas ctx))))
+                  (.fillRect ctx 0 0 (.-width (.-canvas ctx))
+                             (.-height (.-canvas ctx))))
   ([ctx x y w h]
-  (.fillRect ctx x y w h)))
+     (.fillRect ctx x y w h)))
 
 (defn clearRect ([ctx]
-  (.clearRect ctx 0 0 (.-width (.-canvas ctx))
-             (.-height (.-canvas ctx)))))
+                   (.clearRect ctx 0 0 (.-width (.-canvas ctx))
+                               (.-height (.-canvas ctx)))))
 
 (defn fillWindow [ctx]
   (set! (.-width (.-canvas ctx)) (.-innerWidth js/window))
@@ -52,18 +51,18 @@
 
 (clearRect drawboard)
 
-;(println radial-gradient)
+                                        ;(println radial-gradient)
 
 (fillWindow drawboard)
 
 (defn night-sky []
   (let [grad (radial-gradient drawboard 50 110 10 50 80 50)
-light "#99424E"
-strobe "#491B3A"
-rest "#060117"]
-(add-stop grad 0 light)
-(add-stop grad 0.5 strobe)
-(add-stop grad 1 rest) grad))
+        light "#99424E"
+        strobe "#491B3A"
+        rest "#060117"]
+    (add-stop grad 0 light)
+    (add-stop grad 0.5 strobe)
+    (add-stop grad 1 rest) grad))
 
 (defn draw-star [ctx x y radius color]
   (set-fill-style ctx color)
@@ -71,7 +70,7 @@ rest "#060117"]
   (.arc ctx x y radius 0 (* (.-PI js/Math) 2) true)
   (.closePath ctx)
   (.fill ctx))
-  
+
 
 (defn offset
   "Takes a value between [0,1) and maps it to [m,n)"
@@ -110,30 +109,30 @@ rest "#060117"]
         amplitude (* amp 1000)
         selected (locate time amount amplitude)
         sine #(timed-sinewave r0 r1 (+ time (* % 100)) amplitude)]
-    ;(debug "Time: " (.toFixed time 2) "Selection: " selected "Sine: " (.toFixed sine 2))
+                                        ;(debug "Time: " (.toFixed time 2) "Selection: " selected "Sine: " (.toFixed sine 2))
     (doall (map-indexed
             (fn [idx itm]
               (draw-star ctx (:x itm) (:y itm)
                          (if (<= 0 (- idx selected) 10) (sine idx) r0)
-                           "white")) coords))))
+                         "white")) coords))))
 
-;(starfield drawboard 600 0.8)
+                                        ;(starfield drawboard 600 0.8)
 
 (def coords (generate-coords drawboard 600))
 
 (defn x [time] (clearRect drawboard)
 
 
-;(set! (.-globalCompositeOperation drawboard) "overlay")
+                                        ;(set! (.-globalCompositeOperation drawboard) "overlay")
 
-(set-fill-style drawboard (night-sky))
+  (set-fill-style drawboard (night-sky))
 
-(fillRect drawboard)
+  (fillRect drawboard)
 
-(starfield drawboard time coords 4 0.25 5)
+  (starfield drawboard time coords 4 0.3 5)
 
- ;(.requestAnimationFrame js/window x)
-)
-
+                                        ;(.requestAnimationFrame js/window x)
+  )
 
 (x 0)
+

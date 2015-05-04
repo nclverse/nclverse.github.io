@@ -1,6 +1,6 @@
-(ns main-page.dev
+(ns main-site-gen.dev
     (:require
-     [main-page.core]
+     [main-site-gen.core]
      [figwheel.client :as fw]))
 
 (fw/start {
